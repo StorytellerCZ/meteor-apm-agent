@@ -1,6 +1,6 @@
 Package.describe({
   "summary": "Performance Monitoring for Meteor",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "git": "https://github.com/meteor/meteor-apm-agent.git",
   "name": "mdg:meteor-apm-agent"
 });
@@ -17,12 +17,12 @@ var npmModules = {
 
 Npm.depends(npmModules);
 
-Package.on_use(function(api) {
+Package.onUse(function(api) {
   configurePackage(api);
   api.export(['Kadira']);
 });
 
-Package.on_test(function(api) {
+Package.onTest(function(api) {
   configurePackage(api);
   api.use([
     'tinytest',
@@ -30,12 +30,12 @@ Package.on_test(function(api) {
   ], ['client', 'server']);
 
   // common before
-  api.add_files([
+  api.addFiles([
     'tests/models/base_error.js'
   ], ['client', 'server']);
 
   // common server
-  api.add_files([
+  api.addFiles([
     'tests/utils.js',
     'tests/ntp.js',
     'tests/jobs.js',
@@ -68,7 +68,7 @@ Package.on_test(function(api) {
   ], 'server');
 
   // common client
-  api.add_files([
+  api.addFiles([
     'tests/client/utils.js',
     'tests/client/error_tracking.js',
     'tests/client/models/error.js',
@@ -78,7 +78,7 @@ Package.on_test(function(api) {
   ], 'client');
 
   // common after
-  api.add_files([
+  api.addFiles([
     'tests/common/default_error_filters.js',
     'tests/common/send.js'
   ], ['client', 'server']);
@@ -107,13 +107,13 @@ function configurePackage(api) {
   api.use(['underscore', 'random', 'http', 'localstorage'], ['client']);
 
   // common before
-  api.add_files([
+  api.addFiles([
     'lib/common/unify.js',
     'lib/models/base_error.js'
   ], ['client', 'server']);
 
   // only server
-  api.add_files([
+  api.addFiles([
     'lib/jobs.js',
     'lib/retry.js',
     'lib/utils.js',
@@ -147,7 +147,7 @@ function configurePackage(api) {
   ], 'server');
 
   // only client
-  api.add_files([
+  api.addFiles([
     'lib/retry.js',
     'lib/ntp.js',
     'lib/client/utils.js',
@@ -158,7 +158,7 @@ function configurePackage(api) {
     'lib/client/kadira.js'
   ], 'client');
 
-  api.add_files([
+  api.addFiles([
     // It's possible to remove this file after some since this just contains
     // a notice to the user.
     // Actual implementation is in the meteorhacks:kadira-profiler package
@@ -166,7 +166,7 @@ function configurePackage(api) {
   ], 'client');
 
   // common after
-  api.add_files([
+  api.addFiles([
     'lib/common/default_error_filters.js',
     'lib/common/send.js'
   ], ['client', 'server']);
