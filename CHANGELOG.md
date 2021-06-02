@@ -1,5 +1,19 @@
 # Changelog
 
+### v3.4.1
+
+* Use http package version based on your version of Meteor
+
+* Minor fixes through the codebase to modernize it a bit
+
+### v3.4.0
+
+* Upgraded the usage to deprecated APIs to use the current ones
+
+### v3.3.0
+
+* Use dependencies starting at Meteor v1.11
+
 ### v3.2.6
 
 * Fixes an issue in docsize_cache.js#19 where the data parameter can be either an Array or a Map, and a Map's size property is a number and not a function.
